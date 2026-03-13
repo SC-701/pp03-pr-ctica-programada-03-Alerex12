@@ -29,6 +29,7 @@ namespace Web.Pages.Vehiculos
 
             var respuesta = await cliente.SendAsync(solicitud);
             respuesta.EnsureSuccessStatusCode();
+
             var resultado = await respuesta.Content.ReadAsStringAsync();
             var opciones = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
@@ -43,7 +44,7 @@ namespace Web.Pages.Vehiculos
             if (id == Guid.Empty)
                 return NotFound();
 
-            if(ModelState.IsValid)
+            if(!ModelState.IsValid)
                 return Page();
 
             string endpoint = _configuracion.ObtenerMetodo("ApiEndPoints", "EliminarVehiculo");

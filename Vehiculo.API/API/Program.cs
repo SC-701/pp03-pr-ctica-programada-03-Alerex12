@@ -7,6 +7,8 @@ using Abstracciones.Interfaces.Servicios;
 using Servicios;
 using Reglas;
 using Abstracciones.Interfaces.Reglas;
+using API.Controllers;
+using Abstracciones.Interfaces.API;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,7 +29,10 @@ builder.Services.AddScoped<IRevisionServicio, RevisionServicio>();
 builder.Services.AddScoped<IConfiguracion, Configuracion>();
 builder.Services.AddScoped<IRevisionReglas, RevisionReglas>();
 builder.Services.AddScoped<IRegistroReglas, RegistroReglas>();
-
+builder.Services.AddScoped<IMarcaDA, MarcaDA>();
+builder.Services.AddScoped<IMarcaFlujo, MarcaFlujo>();
+builder.Services.AddScoped<IModeloDA, ModeloDA>();
+builder.Services.AddScoped<IModeloFlujo, ModeloFlujo>();
 
 
 
